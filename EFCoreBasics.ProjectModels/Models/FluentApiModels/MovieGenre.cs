@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace EFCoreBasics.ProjectModels.Models.FluentApiModels
+﻿namespace EFCoreBasics.ProjectModels.Models.FluentApiModels
 {
     public class MovieGenre
     {

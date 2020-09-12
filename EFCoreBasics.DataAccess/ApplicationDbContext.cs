@@ -1,4 +1,5 @@
-﻿using EFCoreBasics.ProjectModels.Models;
+﻿using EFCoreBasics.DataAccess.FluentApiConfigurations;
+using EFCoreBasics.ProjectModels.Models;
 using EFCoreBasics.ProjectModels.Models.DataAnnotationsModels;
 using EFCoreBasics.ProjectModels.Models.FluentApiModels;
 using Microsoft.EntityFrameworkCore;
@@ -16,19 +17,11 @@ namespace EFCoreBasics.DataAccess
         {
             modelBuilder.Entity<BookAuthorConnectionTable>().HasKey(k => new {k.AuthorId, k.BookId});
 
-            modelBuilder.Entity<Movie>().HasKey(p => p.MovieId);
-            modelBuilder.Entity<Movie>().Property(p => p.DateReleased).IsRequired();
-            modelBuilder.Entity<Movie>().Property(p => p.BudgetAllocated).IsRequired()
-                .HasColumnType("decimal(9,2)");
-            modelBuilder.Entity<Movie>().Property(p => p.ActualBudget).IsRequired()
-                .HasColumnType(typeName:"decimal(9, 2)");
-
-
-            modelBuilder.Entity<Actor>().HasKey(p => p.Id);
-            modelBuilder.Entity<Actor>().Property(p => p.LastName).IsRequired().HasMaxLength(50);
-            modelBuilder.Entity<Actor>().Property(p => p.FirstName).IsRequired().HasMaxLength(50);
-            modelBuilder.Entity<Actor>().Ignore(p => p.FullName);
-            modelBuilder.Entity<Actor>().Property(p => p.BirthDate).IsRequired();
+            modelBuilder.ApplyConfiguration(new MovieConfigurations());
+            modelBuilder.ApplyConfiguration(new WriterConfiguration());
+            modelBuilder.ApplyConfiguration(new ActorConfigurations());
+            modelBuilder.ApplyConfiguration(new TitleConfigurations());
+            modelBuilder.ApplyConfiguration(new MovieGenreConfigurations());
 
             base.OnModelCreating(modelBuilder);
 
@@ -40,7 +33,7 @@ namespace EFCoreBasics.DataAccess
         public DbSet<Publisher> Publishers { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<BookAuthorConnectionTable> BookAuthorConnectionTable { get; set; }
-
+        public DbSet<Title> Titles { get; set; }
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Actor> Actors { get; set; }
         public DbSet<Writer> Writers { get; set; }

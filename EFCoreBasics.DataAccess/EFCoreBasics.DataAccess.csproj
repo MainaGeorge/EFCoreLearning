@@ -9,6 +9,10 @@
     <Compile Remove="Migrations\20200912103149_AddingCategoryToBookRelation.Designer.cs" />
     <Compile Remove="Migrations\20200912125754_AddingMovieToTheDatabase.cs" />
     <Compile Remove="Migrations\20200912125754_AddingMovieToTheDatabase.Designer.cs" />
+    <Compile Remove="Migrations\20200912140728_temp.cs" />
+    <Compile Remove="Migrations\20200912140728_temp.Designer.cs" />
+    <Compile Remove="Migrations\20200912141013_AddingMovieToDatabase.cs" />
+    <Compile Remove="Migrations\20200912141013_AddingMovieToDatabase.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

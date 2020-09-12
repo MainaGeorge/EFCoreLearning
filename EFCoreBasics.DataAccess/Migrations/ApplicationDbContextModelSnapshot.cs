@@ -223,6 +223,66 @@ namespace EFCoreBasics.DataAccess.Migrations
                     b.ToTable("Movies");
                 });
 
+            modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.FluentApiModels.MovieGenre", b =>
+                {
+                    b.Property<int>("GenreId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("GenreName")
+                        .IsRequired()
+                        .HasColumnName("Name")
+                        .HasColumnType("varchar")
+                        .HasMaxLength(50);
+
+                    b.HasKey("GenreId");
+
+                    b.ToTable("Genres");
+                });
+
+            modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.FluentApiModels.Title", b =>
+                {
+                    b.Property<int>("TitleId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("varchar")
+                        .HasMaxLength(50);
+
+                    b.HasKey("TitleId");
+
+                    b.ToTable("Titles");
+                });
+
+            modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.FluentApiModels.Writer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("BirthDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("varchar")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("varchar")
+                        .HasMaxLength(50);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Writers");
+                });
+
             modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.DataAnnotationsModels.Book", b =>
                 {
                     b.HasOne("EFCoreBasics.ProjectModels.Models.DataAnnotationsModels.BookDetail", "BookDetail")
