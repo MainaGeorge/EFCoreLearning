@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EFCoreBasics.ProjectModels.Models
@@ -13,6 +14,8 @@ namespace EFCoreBasics.ProjectModels.Models
         public string PublisherName { get; set; }
 
         [Required]
-        public string Location { get; set; }    
+        public string Location { get; set; }
+
+        public ICollection<Book> BooksPublished { get; set; }   
     }
 }

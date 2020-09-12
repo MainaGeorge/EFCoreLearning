@@ -23,11 +23,17 @@ namespace EFCoreBasics.ProjectModels.Models
 
         [ForeignKey("Category")]
         public int CategoryId { get; set; } 
-        public Category Category { get; set; }
 
         [ForeignKey("BookDetail")]
         public int BookDetailId { get; set; }
-        public BookDetail BookDetail { get; set; }  
+
+        [ForeignKey("Publisher")]
+        public int PublisherId { get; set; }
+
+        public Publisher Publisher { get; set; }    
+        public BookDetail BookDetail { get; set; }
+        public Category Category { get; set; }
+
 
     }
 }
