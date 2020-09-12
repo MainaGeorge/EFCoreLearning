@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EFCoreBasics.ProjectModels.Models
+namespace EFCoreBasics.ProjectModels.Models.DataAnnotationsModels
 {
     [Table("tb_genres")]
     public class Genre

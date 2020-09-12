@@ -7,6 +7,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20200912103149_AddingCategoryToBookRelation.cs" />
     <Compile Remove="Migrations\20200912103149_AddingCategoryToBookRelation.Designer.cs" />
+    <Compile Remove="Migrations\20200912125754_AddingMovieToTheDatabase.cs" />
+    <Compile Remove="Migrations\20200912125754_AddingMovieToTheDatabase.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

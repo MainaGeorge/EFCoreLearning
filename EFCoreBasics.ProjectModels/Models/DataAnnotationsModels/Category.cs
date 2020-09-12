@@ -1,4 +1,4 @@
-﻿namespace EFCoreBasics.ProjectModels.Models
+﻿namespace EFCoreBasics.ProjectModels.Models.DataAnnotationsModels
 {
     public class Category
     {

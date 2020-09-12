@@ -1,13 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EFCoreBasics.ProjectModels.Models
+namespace EFCoreBasics.ProjectModels.Models.DataAnnotationsModels
 {
     public class Author
     {
         [Key]
-        // [DatabaseGenerated(databaseGeneratedOption:DatabaseGeneratedOption.Identity)]
         public int AuthorId { get; set; }
 
         [Required]
@@ -23,5 +23,7 @@ namespace EFCoreBasics.ProjectModels.Models
 
         [NotMapped]
         public string FullName => $"{FirstName} {LastName}";
+
+        public ICollection<BookAuthorConnectionTable> BooksAuthored { get; set; }    
     }
 }

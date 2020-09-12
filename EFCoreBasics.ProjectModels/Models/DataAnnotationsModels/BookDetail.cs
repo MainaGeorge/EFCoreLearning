@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EFCoreBasics.ProjectModels.Models
+namespace EFCoreBasics.ProjectModels.Models.DataAnnotationsModels
 {
     public class BookDetail
     {

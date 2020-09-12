@@ -4,14 +4,16 @@ using EFCoreBasics.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EFCoreBasics.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200912110802_AddingManyToManyRelationBetweenBookAndAuthor")]
+    partial class AddingManyToManyRelationBetweenBookAndAuthor
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -19,7 +21,7 @@ namespace EFCoreBasics.DataAccess.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.DataAnnotationsModels.Author", b =>
+            modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.Author", b =>
                 {
                     b.Property<int>("AuthorId")
                         .ValueGeneratedOnAdd()
@@ -46,7 +48,7 @@ namespace EFCoreBasics.DataAccess.Migrations
                     b.ToTable("Authors");
                 });
 
-            modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.DataAnnotationsModels.Book", b =>
+            modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.Book", b =>
                 {
                     b.Property<int>("BookId")
                         .ValueGeneratedOnAdd()
@@ -86,7 +88,7 @@ namespace EFCoreBasics.DataAccess.Migrations
                     b.ToTable("Books");
                 });
 
-            modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.DataAnnotationsModels.BookAuthorConnectionTable", b =>
+            modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.BookAuthorConnectionTable", b =>
                 {
                     b.Property<int>("AuthorId")
                         .HasColumnType("int");
@@ -101,7 +103,7 @@ namespace EFCoreBasics.DataAccess.Migrations
                     b.ToTable("BookAuthorConnectionTable");
                 });
 
-            modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.DataAnnotationsModels.BookDetail", b =>
+            modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.BookDetail", b =>
                 {
                     b.Property<int>("BookDetailId")
                         .ValueGeneratedOnAdd()
@@ -122,7 +124,7 @@ namespace EFCoreBasics.DataAccess.Migrations
                     b.ToTable("BookDetail");
                 });
 
-            modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.DataAnnotationsModels.Category", b =>
+            modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.Category", b =>
                 {
                     b.Property<int>("CategoryId")
                         .ValueGeneratedOnAdd()
@@ -137,7 +139,7 @@ namespace EFCoreBasics.DataAccess.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.DataAnnotationsModels.Genre", b =>
+            modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.Genre", b =>
                 {
                     b.Property<int>("GenreId")
                         .ValueGeneratedOnAdd()
@@ -156,7 +158,7 @@ namespace EFCoreBasics.DataAccess.Migrations
                     b.ToTable("tb_genres");
                 });
 
-            modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.DataAnnotationsModels.Publisher", b =>
+            modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.Publisher", b =>
                 {
                     b.Property<int>("PublisherId")
                         .ValueGeneratedOnAdd()
@@ -177,82 +179,36 @@ namespace EFCoreBasics.DataAccess.Migrations
                     b.ToTable("Publishers");
                 });
 
-            modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.FluentApiModels.Actor", b =>
+            modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.Book", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("BirthDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Actors");
-                });
-
-            modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.FluentApiModels.Movie", b =>
-                {
-                    b.Property<int>("MovieId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<decimal>("ActualBudget")
-                        .HasColumnType("decimal(9, 2)");
-
-                    b.Property<decimal>("BudgetAllocated")
-                        .HasColumnType("decimal(9,2)");
-
-                    b.Property<DateTime>("DateReleased")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("MovieId");
-
-                    b.ToTable("Movies");
-                });
-
-            modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.DataAnnotationsModels.Book", b =>
-                {
-                    b.HasOne("EFCoreBasics.ProjectModels.Models.DataAnnotationsModels.BookDetail", "BookDetail")
+                    b.HasOne("EFCoreBasics.ProjectModels.Models.BookDetail", "BookDetail")
                         .WithOne("Book")
-                        .HasForeignKey("EFCoreBasics.ProjectModels.Models.DataAnnotationsModels.Book", "BookDetailId")
+                        .HasForeignKey("EFCoreBasics.ProjectModels.Models.Book", "BookDetailId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EFCoreBasics.ProjectModels.Models.DataAnnotationsModels.Category", "Category")
+                    b.HasOne("EFCoreBasics.ProjectModels.Models.Category", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EFCoreBasics.ProjectModels.Models.DataAnnotationsModels.Publisher", "Publisher")
+                    b.HasOne("EFCoreBasics.ProjectModels.Models.Publisher", "Publisher")
                         .WithMany("BooksPublished")
                         .HasForeignKey("PublisherId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.DataAnnotationsModels.BookAuthorConnectionTable", b =>
+            modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.BookAuthorConnectionTable", b =>
                 {
-                    b.HasOne("EFCoreBasics.ProjectModels.Models.DataAnnotationsModels.Author", "Author")
+                    b.HasOne("EFCoreBasics.ProjectModels.Models.Author", "Author")
                         .WithMany("BooksAuthored")
                         .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EFCoreBasics.ProjectModels.Models.DataAnnotationsModels.Book", "Book")
+                    b.HasOne("EFCoreBasics.ProjectModels.Models.Book", "Book")
                         .WithMany("Authors")
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)

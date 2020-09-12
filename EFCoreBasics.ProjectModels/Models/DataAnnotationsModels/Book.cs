@@ -1,7 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EFCoreBasics.ProjectModels.Models
+namespace EFCoreBasics.ProjectModels.Models.DataAnnotationsModels
 {
     public class Book
     {
@@ -33,6 +34,8 @@ namespace EFCoreBasics.ProjectModels.Models
         public Publisher Publisher { get; set; }    
         public BookDetail BookDetail { get; set; }
         public Category Category { get; set; }
+
+        public ICollection<BookAuthorConnectionTable> Authors { get; set; }    
 
 
     }
