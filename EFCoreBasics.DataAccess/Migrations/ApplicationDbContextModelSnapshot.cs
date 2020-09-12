@@ -40,7 +40,10 @@ namespace EFCoreBasics.DataAccess.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name")
+                    b.Property<int>("DisplayOrder")
+                        .HasColumnType("int");
+
+                    b.Property<string>("GenreName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("GenreId");
