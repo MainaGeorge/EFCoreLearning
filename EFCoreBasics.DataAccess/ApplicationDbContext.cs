@@ -1,9 +1,7 @@
 ﻿using EFCoreBasics.DataAccess.FluentApiConfigurations;
-using EFCoreBasics.ProjectModels.Models;
 using EFCoreBasics.ProjectModels.Models.DataAnnotationsModels;
 using EFCoreBasics.ProjectModels.Models.FluentApiModels;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 
 namespace EFCoreBasics.DataAccess
 {
@@ -22,6 +20,7 @@ namespace EFCoreBasics.DataAccess
             modelBuilder.ApplyConfiguration(new ActorConfigurations());
             modelBuilder.ApplyConfiguration(new TitleConfigurations());
             modelBuilder.ApplyConfiguration(new MovieGenreConfigurations());
+            modelBuilder.ApplyConfiguration(new MoviesActorsJoiningTableConfigurations());
 
             base.OnModelCreating(modelBuilder);
 

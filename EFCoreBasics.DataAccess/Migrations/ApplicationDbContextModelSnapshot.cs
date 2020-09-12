@@ -218,7 +218,18 @@ namespace EFCoreBasics.DataAccess.Migrations
                     b.Property<DateTime>("DateReleased")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("ProducingCompanyId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TitleId")
+                        .HasColumnType("int");
+
                     b.HasKey("MovieId");
+
+                    b.HasIndex("ProducingCompanyId");
+
+                    b.HasIndex("TitleId")
+                        .IsUnique();
 
                     b.ToTable("Movies");
                 });
@@ -239,6 +250,39 @@ namespace EFCoreBasics.DataAccess.Migrations
                     b.HasKey("GenreId");
 
                     b.ToTable("Genres");
+                });
+
+            modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.FluentApiModels.MoviesActorsJoiningTable", b =>
+                {
+                    b.Property<int>("ActorId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MovieId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ActorId", "MovieId");
+
+                    b.HasIndex("MovieId");
+
+                    b.ToTable("MoviesActorsJoiningTable");
+                });
+
+            modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.FluentApiModels.ProducingCompany", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Location")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProducingCompany");
                 });
 
             modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.FluentApiModels.Title", b =>
@@ -315,6 +359,36 @@ namespace EFCoreBasics.DataAccess.Migrations
                     b.HasOne("EFCoreBasics.ProjectModels.Models.DataAnnotationsModels.Book", "Book")
                         .WithMany("Authors")
                         .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.FluentApiModels.Movie", b =>
+                {
+                    b.HasOne("EFCoreBasics.ProjectModels.Models.FluentApiModels.ProducingCompany", "ProducingCompany")
+                        .WithMany("MoviesProduced")
+                        .HasForeignKey("ProducingCompanyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EFCoreBasics.ProjectModels.Models.FluentApiModels.Title", "Title")
+                        .WithOne("Movie")
+                        .HasForeignKey("EFCoreBasics.ProjectModels.Models.FluentApiModels.Movie", "TitleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.FluentApiModels.MoviesActorsJoiningTable", b =>
+                {
+                    b.HasOne("EFCoreBasics.ProjectModels.Models.FluentApiModels.Actor", "Actor")
+                        .WithMany("Movies")
+                        .HasForeignKey("ActorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EFCoreBasics.ProjectModels.Models.FluentApiModels.Movie", "Movie")
+                        .WithMany("Actors")
+                        .HasForeignKey("MovieId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

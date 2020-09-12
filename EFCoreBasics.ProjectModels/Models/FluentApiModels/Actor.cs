@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace EFCoreBasics.ProjectModels.Models.FluentApiModels
 {
@@ -13,5 +14,7 @@ namespace EFCoreBasics.ProjectModels.Models.FluentApiModels
         public override int Id { get; set; }
 
         public string FullName => $"{FirstName} {LastName}";
+
+        public ICollection<MoviesActorsJoiningTable> Movies { get; set; }
     }
 }
