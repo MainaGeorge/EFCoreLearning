@@ -1,0 +1,9 @@
+D:\CURRENT PROJECTS\BhrugenEFCore\EFCoreBasics.ProjectModels\bin\Debug\netcoreapp3.1\EFCoreBasics.ProjectModels.deps.json
+D:\CURRENT PROJECTS\BhrugenEFCore\EFCoreBasics.ProjectModels\bin\Debug\netcoreapp3.1\EFCoreBasics.ProjectModels.dll
+D:\CURRENT PROJECTS\BhrugenEFCore\EFCoreBasics.ProjectModels\bin\Debug\netcoreapp3.1\EFCoreBasics.ProjectModels.pdb
+D:\CURRENT PROJECTS\BhrugenEFCore\EFCoreBasics.ProjectModels\obj\Debug\netcoreapp3.1\EFCoreBasics.ProjectModels.csprojAssemblyReference.cache
+D:\CURRENT PROJECTS\BhrugenEFCore\EFCoreBasics.ProjectModels\obj\Debug\netcoreapp3.1\EFCoreBasics.ProjectModels.AssemblyInfoInputs.cache
+D:\CURRENT PROJECTS\BhrugenEFCore\EFCoreBasics.ProjectModels\obj\Debug\netcoreapp3.1\EFCoreBasics.ProjectModels.AssemblyInfo.cs
+D:\CURRENT PROJECTS\BhrugenEFCore\EFCoreBasics.ProjectModels\obj\Debug\netcoreapp3.1\EFCoreBasics.ProjectModels.csproj.CoreCompileInputs.cache
+D:\CURRENT PROJECTS\BhrugenEFCore\EFCoreBasics.ProjectModels\obj\Debug\netcoreapp3.1\EFCoreBasics.ProjectModels.dll
+D:\CURRENT PROJECTS\BhrugenEFCore\EFCoreBasics.ProjectModels\obj\Debug\netcoreapp3.1\EFCoreBasics.ProjectModels.pdb
