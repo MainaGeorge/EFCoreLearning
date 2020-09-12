@@ -1676,6 +1676,20 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "EFCoreBasics.DataAccess/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "3.1.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.8"
+        },
+        "compile": {
+          "bin/placeholder/EFCoreBasics.DataAccess.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EFCoreBasics.DataAccess.dll": {}
+        }
+      },
       "EFCoreBasics.ProjectModels/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -6105,6 +6119,11 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "EFCoreBasics.DataAccess/1.0.0": {
+      "type": "project",
+      "path": "../EFCoreBasics.DataAccess/EFCoreBasics.DataAccess.csproj",
+      "msbuildProject": "../EFCoreBasics.DataAccess/EFCoreBasics.DataAccess.csproj"
+    },
     "EFCoreBasics.ProjectModels/1.0.0": {
       "type": "project",
       "path": "../EFCoreBasics.ProjectModels/EFCoreBasics.ProjectModels.csproj",
@@ -6113,6 +6132,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "EFCoreBasics.DataAccess >= 1.0.0",
       "EFCoreBasics.ProjectModels >= 1.0.0",
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 3.1.8",
       "Microsoft.EntityFrameworkCore >= 3.1.8",
@@ -6145,6 +6165,9 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
+            "D:\\CURRENT PROJECTS\\BhrugenEFCore\\EFCoreBasics.DataAccess\\EFCoreBasics.DataAccess.csproj": {
+              "projectPath": "D:\\CURRENT PROJECTS\\BhrugenEFCore\\EFCoreBasics.DataAccess\\EFCoreBasics.DataAccess.csproj"
+            },
             "D:\\CURRENT PROJECTS\\BhrugenEFCore\\EFCoreBasics.ProjectModels\\EFCoreBasics.ProjectModels.csproj": {
               "projectPath": "D:\\CURRENT PROJECTS\\BhrugenEFCore\\EFCoreBasics.ProjectModels\\EFCoreBasics.ProjectModels.csproj"
             }

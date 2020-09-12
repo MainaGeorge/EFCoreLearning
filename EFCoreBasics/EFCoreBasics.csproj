@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EFCoreBasics.DataAccess\EFCoreBasics.DataAccess.csproj" />
     <ProjectReference Include="..\EFCoreBasics.ProjectModels\EFCoreBasics.ProjectModels.csproj" />
   </ItemGroup>
 
