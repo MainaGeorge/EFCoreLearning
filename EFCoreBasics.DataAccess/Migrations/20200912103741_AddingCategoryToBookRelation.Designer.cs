@@ -4,14 +4,16 @@ using EFCoreBasics.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EFCoreBasics.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200912103741_AddingCategoryToBookRelation")]
+    partial class AddingCategoryToBookRelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,9 +55,6 @@ namespace EFCoreBasics.DataAccess.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("BookDetailId")
-                        .HasColumnType("int");
-
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
@@ -73,33 +72,9 @@ namespace EFCoreBasics.DataAccess.Migrations
 
                     b.HasKey("BookId");
 
-                    b.HasIndex("BookDetailId")
-                        .IsUnique();
-
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Books");
-                });
-
-            modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.BookDetail", b =>
-                {
-                    b.Property<int>("BookDetailId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<double>("BookWeight")
-                        .HasColumnType("float");
-
-                    b.Property<int>("NumberOfChapters")
-                        .HasColumnType("int");
-
-                    b.Property<int>("NumberOfPages")
-                        .HasColumnType("int");
-
-                    b.HasKey("BookDetailId");
-
-                    b.ToTable("BookDetail");
                 });
 
             modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.Category", b =>
@@ -159,12 +134,6 @@ namespace EFCoreBasics.DataAccess.Migrations
 
             modelBuilder.Entity("EFCoreBasics.ProjectModels.Models.Book", b =>
                 {
-                    b.HasOne("EFCoreBasics.ProjectModels.Models.BookDetail", "BookDetail")
-                        .WithOne("Book")
-                        .HasForeignKey("EFCoreBasics.ProjectModels.Models.Book", "BookDetailId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("EFCoreBasics.ProjectModels.Models.Category", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")

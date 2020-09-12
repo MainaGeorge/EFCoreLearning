@@ -7,6 +7,7 @@ namespace EFCoreBasics.ProjectModels.Models
     public class Author
     {
         [Key]
+        // [DatabaseGenerated(databaseGeneratedOption:DatabaseGeneratedOption.Identity)]
         public int AuthorId { get; set; }
 
         [Required]
