@@ -6,3 +6,10 @@ D:\CURRENT PROJECTS\BhrugenEFCore\EFCoreBasics.DataAccess\obj\Debug\netcoreapp3.
 D:\CURRENT PROJECTS\BhrugenEFCore\EFCoreBasics.DataAccess\obj\Debug\netcoreapp3.1\EFCoreBasics.DataAccess.AssemblyInfo.cs
 D:\CURRENT PROJECTS\BhrugenEFCore\EFCoreBasics.DataAccess\obj\Debug\netcoreapp3.1\EFCoreBasics.DataAccess.dll
 D:\CURRENT PROJECTS\BhrugenEFCore\EFCoreBasics.DataAccess\obj\Debug\netcoreapp3.1\EFCoreBasics.DataAccess.pdb
+D:\CURRENT PROJECTS\BhrugenEFCore\EFCoreBasics.DataAccess\bin\Debug\netcoreapp3.1\EFCoreBasics.ProjectModels.dll
+D:\CURRENT PROJECTS\BhrugenEFCore\EFCoreBasics.DataAccess\bin\Debug\netcoreapp3.1\EFCoreBasics.ProjectModels.pdb
+D:\CURRENT PROJECTS\BhrugenEFCore\EFCoreBasics.DataAccess\obj\Debug\netcoreapp3.1\EFCoreBasics.DataAccess.csproj.CopyComplete
+D:\CURRENT PROJECTS\BhrugenEFCore\EFCoreBasics.DataAccess\bin\Debug\netcoreapp3.1\EFCoreBasics.DataAccess.runtimeconfig.json
+D:\CURRENT PROJECTS\BhrugenEFCore\EFCoreBasics.DataAccess\bin\Debug\netcoreapp3.1\EFCoreBasics.DataAccess.runtimeconfig.dev.json
+D:\CURRENT PROJECTS\BhrugenEFCore\EFCoreBasics.DataAccess\obj\Debug\netcoreapp3.1\EFCoreBasics.DataAccess.csproj.CoreCompileInputs.cache
+D:\CURRENT PROJECTS\BhrugenEFCore\EFCoreBasics.DataAccess\obj\Debug\netcoreapp3.1\EFCoreBasics.DataAccess.genruntimeconfig.cache
